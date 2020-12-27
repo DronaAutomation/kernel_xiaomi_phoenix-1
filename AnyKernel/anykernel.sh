@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Hentai Kremel by @AtomicXZ
+kernel.string=Sukuna Kernel by @AtomicXZ
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
