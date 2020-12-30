@@ -84,6 +84,7 @@ function zipping() {
     zip -r9 SukunaKernel-phoenix-${TANGGAL}.zip *
     cd ..
 }
+sticker
 sendinfo
 compile
 zipping
