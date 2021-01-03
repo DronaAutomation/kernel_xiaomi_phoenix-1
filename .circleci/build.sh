@@ -23,7 +23,7 @@ export KBUILD_BUILD_USER="AtomicXZ"
 
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
-        -d sticker="CAACAgUAAxkBAAE2GJxf6Ds5YGyXiLHSRvWJ6z8W6KxysAACfAEAAlKsMFU12WW56-aEOx4E" \
+        -d sticker=$sticker_id \
         -d chat_id=$chat_id
 }
 # Send info to channel 
