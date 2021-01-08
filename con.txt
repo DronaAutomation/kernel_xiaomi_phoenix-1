@@ -1,0 +1,31 @@
+Auto-merging sound/soc/soc-pcm.c
+Auto-merging net/wireless/nl80211.c
+Auto-merging net/packet/af_packet.c
+Auto-merging net/netfilter/x_tables.c
+Auto-merging net/netfilter/nf_conntrack_netlink.c
+Auto-merging net/netfilter/nf_conntrack_core.c
+Auto-merging net/core/dev.c
+Auto-merging net/bridge/br_if.c
+Auto-merging mm/vmscan.c
+CONFLICT (content): Merge conflict in mm/vmscan.c
+Auto-merging mm/slab.c
+Auto-merging mm/memory.c
+Auto-merging lib/ubsan.c
+Auto-merging kernel/trace/trace_irqsoff.c
+Auto-merging kernel/trace/trace_functions_graph.c
+Auto-merging kernel/trace/trace.h
+Auto-merging kernel/irq/manage.c
+CONFLICT (content): Merge conflict in kernel/irq/manage.c
+Auto-merging kernel/cpu.c
+CONFLICT (content): Merge conflict in kernel/cpu.c
+Auto-merging init/main.c
+Auto-merging include/net/netfilter/nf_conntrack.h
+Auto-merging include/linux/cpu.h
+Auto-merging fs/fuse/dev.c
+Auto-merging drivers/usb/dwc3/core.c
+Auto-merging drivers/platform/x86/thinkpad_acpi.c
+Auto-merging drivers/net/Kconfig
+Auto-merging drivers/base/cpu.c
+Auto-merging Makefile
+Auto-merging Documentation/admin-guide/kernel-parameters.txt
+Automatic merge failed; fix conflicts and then commit the result.
