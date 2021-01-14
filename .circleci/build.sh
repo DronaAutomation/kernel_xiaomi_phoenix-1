@@ -9,7 +9,7 @@ git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 echo "Done"
 
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
-TANGGAL=$(date +"%F-%S")
+TANGGAL=$(date +"%F_%H-%M")
 START=$(date +"%s")
 CLANG_VERSION=$(clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 export CONFIG_PATH=$PWD/arch/arm64/configs/phoenix_defconfig
@@ -19,23 +19,16 @@ export ARCH=arm64
 export KBUILD_BUILD_HOST=SukunaKernel
 export KBUILD_BUILD_USER="AtomicXZ"
 
-# Send sticker
-
-function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
-        -d sticker=$sticker_id \
-        -d chat_id=$chat_id
-}
-# Send info to channel 
-function sendinfo() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
-        -d chat_id="$chat_id" \
-        -d "disable_web_page_preview=true" \
+# Header
+function header() {
+    curl -s -X POST "https://api.telegram.org/bot$token/sendPhoto" \
+        -d photo=$url \
+        -d chat_id=$chat_id \
         -d "parse_mode=html" \
-        -d text="<b>• SukunaKernel •</b>%0ABuild started on <code>Circle CI/CD</code>%0A <b>For device</b> <i>Xiaomi Poco X2/Redmi K30 (phoenix)</i>%0A<b>branch:-</b> <code>$(git rev-parse --abbrev-ref HEAD)</code>(master)%0A<b>Under commit</b> <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0A<b>Using compiler:- </b> <code>$CLANG_VERSION</code>%0A<b>Started on:- </b> <code>$(date)</code>%0A<b>Build Status:</b> #Stable"
+	-d caption="<b>• SukunaKernel •</b>%0ABuild started on <code>Circle CI/CD</code>%0A <b>For device</b> <i>Xiaomi Poco X2/Redmi K30 (phoenix)</i>%0A<b>branch:-</b> <code>$(git rev-parse --abbrev-ref HEAD)</code>(master)%0A<b>Under commit</b> <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0A<b>Using compiler:- </b> <code>$CLANG_VERSION</code>%0A<b>Started on:- </b> <code>$(date)</code>%0A<b>Build Status:</b> #Stable"
 }
-# Push kernel to channel
 
+# Push kernel to channel
 function push() {
     cd AnyKernel
     ZIP=$(echo *.zip)
@@ -45,8 +38,8 @@ function push() {
         -F "parse_mode=html" \
         -F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Xiaomi Poco X2/Redmi K30 (phoenix)</b> | <b>$CLANG_VERSION</b>"
 }
-# Fin Error
 
+# Fin Error
 function finerr() {
     curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
         -d chat_id="$chat_id" \
@@ -77,15 +70,14 @@ else
    finerr
 fi
 }
-# Zipping
 
+# Zipping
 function zipping() {
     cd AnyKernel || exit 1
     zip -r9 SukunaKernel-phoenix-${TANGGAL}.zip *
     cd ..
 }
-sticker
-sendinfo
+header
 compile
 zipping
 END=$(date +"%s")
