@@ -2,7 +2,7 @@
 
 echo "Cloning dependencies"
 
-git clone --depth=1 https://github.com/AtomicXZ/kernel_xiaomi_phoenix.git -b eleven-test kernel
+git clone --depth=1 https://github.com/AtomicXZ/kernel_xiaomi_phoenix.git -b eleven kernel
 cd kernel
 git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 
@@ -32,7 +32,7 @@ function sendinfo() {
         -d chat_id="$chat_id" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="<b>• SukunaKernel •</b>%0ABuild started on <code>Circle CI/CD</code>%0A <b>For device</b> <i>Xiaomi Poco X2/Redmi K30 (phoenix)</i>%0A<b>branch:-</b> <code>$(git rev-parse --abbrev-ref HEAD)</code>(master)%0A<b>Under commit</b> <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0A<b>Using compiler:- </b> <code>$CLANG_VERSION</code>%0A<b>Started on:- </b> <code>$(date)</code>%0A<b>Build Status:</b> #Test"
+        -d text="<b>• SukunaKernel •</b>%0ABuild started on <code>Circle CI/CD</code>%0A <b>For device</b> <i>Xiaomi Poco X2/Redmi K30 (phoenix)</i>%0A<b>branch:-</b> <code>$(git rev-parse --abbrev-ref HEAD)</code>(master)%0A<b>Under commit</b> <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0A<b>Using compiler:- </b> <code>$CLANG_VERSION</code>%0A<b>Started on:- </b> <code>$(date)</code>%0A<b>Build Status:</b> #Stable"
 }
 # Push kernel to channel
 
