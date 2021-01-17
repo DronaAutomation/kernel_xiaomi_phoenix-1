@@ -543,7 +543,7 @@ drm_property_create_blob(struct drm_device *dev, size_t length,
 	struct drm_property_blob *blob;
 	int ret;
 
-	if (!length || length > MAX_BLOB_PROP_SIZE -
+ 	if (!length || length > MAX_BLOB_PROP_SIZE -
 				sizeof(struct drm_property_blob))
 		return ERR_PTR(-EINVAL);
 
