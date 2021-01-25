@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Sukuna Kernel by @AtomicXZ
+kernel.string=NightBlade Kernel by @AtomicXZ
 do.devicecheck=1
 do.modules=0
 do.cleanup=1

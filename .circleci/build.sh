@@ -16,7 +16,7 @@ export CONFIG_PATH=$PWD/arch/arm64/configs/phoenix_defconfig
 export PATH=$PWD/clang/bin:$PATH
 
 export ARCH=arm64
-export KBUILD_BUILD_HOST=SukunaKernel
+export KBUILD_BUILD_HOST=NightBladeKernel
 export KBUILD_BUILD_USER="AtomicXZ"
 
 # Header
@@ -74,7 +74,7 @@ fi
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 SukunaKernel-phoenix-${TANGGAL}.zip *
+    zip -r9 NightBladeKernel-phoenix-${TANGGAL}.zip *
     cd ..
 }
 header
